@@ -1,10 +1,9 @@
 import React from "react";
 import Cards, { Card } from "./Card";
-import MUCard from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-
+import CardComponent from "./CardComponent";
 import "./style.css";
+import { connect } from "react-redux";
+
 function action(text) {
   console.log(text);
 }
@@ -21,37 +20,24 @@ const Wrapper = props => {
       alertLeft={CustomAlertLeft}
       alertRight={CustomAlertRight}
     >
-      {props.data.map((item, key) => (
+      {props.items.map((item, key) => (
         <Card
           key={key}
           onSwipeLeft={() => action("swipe left")}
           onSwipeRight={() => action("swipe right")}
         >
-          <FancyCard name={item} />
+          <CardComponent item={item} />
         </Card>
       ))}
     </Cards>
   );
 };
 
-const FancyCard = props => (
-  <MUCard
-    style={{
-      marginTop: "8px",
-      height: "100%",
-      backgroundColor:
-        props.swipeDirection === "left"
-          ? "red"
-          : props.swipeDirection === "right"
-            ? "green"
-            : "white"
-    }}
-  >
-    <CardContent>
-      <Typography variant="title" color="textSecondary" gutterBottom>
-        {props.name}
-      </Typography>
-    </CardContent>
-  </MUCard>
-);
-export default Wrapper;
+function mapStateToProps(state) {
+  return {
+    items: state.items,
+    isFetching: state.isFetching
+  };
+}
+
+export default connect(mapStateToProps)(Wrapper);
