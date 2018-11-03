@@ -2,18 +2,31 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Refresh from "@material-ui/icons/Refresh";
 import Swipe from "./Swipe";
+import { BounceLoader } from "react-spinners";
+import { connect } from "react-redux";
+import { fetchPackages } from "../store/actions";
 
 class Swiper extends React.Component {
   state = {
     done: false
   };
 
+  componentDidMount() {
+    this.props.dispatch(fetchPackages("London"));
+  }
+
   toggleDone = () => {
     this.setState({ done: !this.state.done });
   };
   render() {
+    const { isFetching } = this.props;
     return (
       <div>
+        {isFetching && (
+          <div style={{ position: "absolute" }}>
+            <BounceLoader />
+          </div>
+        )}
         {this.state.done ? (
           <Button
             variant="fab"
@@ -56,4 +69,10 @@ class Swiper extends React.Component {
   }
 }
 
-export default Swiper;
+function mapStateToProps(state) {
+  return {
+    isFetching: state.isFetching
+  };
+}
+
+export default connect(mapStateToProps)(Swiper);

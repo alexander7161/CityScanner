@@ -4,12 +4,20 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "typeface-roboto";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./components/store/reducer";
+import { Provider } from "react-redux";
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <React.Fragment>
-    <CssBaseline />
-    <App />
-  </React.Fragment>,
+  <Provider store={store}>
+    <React.Fragment>
+      <CssBaseline />
+      <App />
+    </React.Fragment>
+  </Provider>,
   document.getElementById("root")
 );
 

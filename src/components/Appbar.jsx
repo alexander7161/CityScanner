@@ -63,12 +63,17 @@ class MenuAppBar extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            
-			<Link className={classes.grow} to="/" style={{ textDecoration: 'none',color:'#ffffff' }}><Typography variant="h6" color="inherit" >
-              CityScanner
-            </Typography></Link>
-            
-            
+
+            <Link
+              className={classes.grow}
+              to="/swiper"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <Typography variant="h6" color="inherit">
+                CityScanner
+              </Typography>
+            </Link>
+
             {auth && (
               <div>
                 <IconButton
