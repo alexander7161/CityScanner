@@ -13,6 +13,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -62,11 +63,12 @@ class MenuAppBar extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            {/* <div onClick={() => this.props.history.push("/")}> */}
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+            
+			<Link className={classes.grow} to="/" style={{ textDecoration: 'none',color:'#ffffff' }}><Typography variant="h6" color="inherit" >
               CityScanner
-            </Typography>
-            {/* </div> */}
+            </Typography></Link>
+            
+            
             {auth && (
               <div>
                 <IconButton
