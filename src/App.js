@@ -1,37 +1,22 @@
 import React, { Component } from "react";
 import Appbar from "./components/Appbar";
-import Swipe from "./components/Swipe";
-import Button from "@material-ui/core/Button";
-import Refresh from "@material-ui/icons/Refresh";
+import Swiper from "./components/Swiper/";
+import Summary from "./components/Summary";
+import List from "./components/List";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
-  state = {
-    done: false
-  };
-
-  toggleDone = () => {
-    this.setState({ done: !this.state.done });
-  };
   render() {
     return (
-      <div className="App">
+      <div>
         <Appbar />
-        {this.state.done ? (
-          <Button
-            variant="fab"
-            color="secondary"
-            aria-label="Refresh"
-            onClick={this.toggleDone}
-            style={{ top: "100px" }}
-          >
-            <Refresh />
-          </Button>
-        ) : (
-          <Swipe
-            toggleDone={this.toggleDone}
-            data={["Alexandre", "Thomas", "Lucien"]}
-          />
-        )}
+        <Router>
+          <React.Fragment>
+            <Route path="/" exact component={Swiper} />
+            <Route path="/list" exact component={List} />
+            <Route path="/summary/:summaryID" exact component={Summary} />
+          </React.Fragment>
+        </Router>
       </div>
     );
   }
