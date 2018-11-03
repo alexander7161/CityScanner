@@ -9,9 +9,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Appbar />
         <Router>
           <React.Fragment>
+            <Appbar />
+
             <Route path="/" exact component={Swiper} />
             <Route path="/list" exact component={List} />
             <Route path="/summary/:summaryID" exact component={Summary} />
