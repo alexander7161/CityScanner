@@ -1,25 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Appbar from "./components/Appbar";
+import Swipe from "./components/Swipe";
+import Button from "@material-ui/core/Button";
+import Refresh from "@material-ui/icons/Refresh";
 
 class App extends Component {
+  state = {
+    done: false
+  };
+
+  toggleDone = () => {
+    this.setState({ done: !this.state.done });
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+        <Appbar />
+        {this.state.done ? (
+          <Button
+            variant="fab"
+            color="secondary"
+            aria-label="Refresh"
+            onClick={this.toggleDone}
+            style={{ top: "100px" }}
           >
-            Learn React
-          </a>
-        </header>
+            <Refresh />
+          </Button>
+        ) : (
+          <Swipe
+            toggleDone={this.toggleDone}
+            data={["Alexandre", "Thomas", "Lucien"]}
+          />
+        )}
       </div>
     );
   }
