@@ -101,7 +101,7 @@ class SwipeCards extends React.PureComponent {
 
 SwipeCards.defaultProps = {
   size: [300, 300],
-  cardSize: ["90vw", 550]
+  cardSize: ["90vw","40vh"]
 };
 
 export default SwipeCards;
