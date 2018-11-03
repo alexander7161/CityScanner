@@ -11,8 +11,7 @@ class App extends Component {
       <div>
         <Router>
           <React.Fragment>
-            <Appbar />
-
+            <Route path="/" component={Appbar} />
             <Route path="/" exact component={Swiper} />
             <Route path="/list" exact component={List} />
             <Route path="/summary/:summaryID" exact component={Summary} />
