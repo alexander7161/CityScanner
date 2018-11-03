@@ -1,0 +1,22 @@
+.master-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  height: 80vh;
+  width: 180px;
+  cursor: pointer;
+  will-change: "transform";
+  transform-origin: center center;
+}
+
+.animate {
+  transition: transform 0.3s;
+  box-shadow: none;
+}
+
+.inactive {
+  box-shadow: none;
+}
