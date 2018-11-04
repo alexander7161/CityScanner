@@ -4,8 +4,7 @@ import Swiper from "./components/Swiper/";
 import Summary from "./components/Summary";
 import List from "./components/List";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { fetchPackages } from "./components/store/actions";
-import Location from "./components/Location";
+import Dialog from "./components/Dialog";
 class App extends Component {
   render() {
     return (
@@ -14,10 +13,10 @@ class App extends Component {
           <React.Fragment>
             <Route path="/" component={Appbar} />
 
-            <Route path="/" exact component={Location} />
-            <Route path="/swiper" exact component={Swiper} />
+            <Route path="/" exact component={Swiper} />
             <Route path="/list" exact component={List} />
             <Route path="/summary/:summaryID" exact component={Summary} />
+            <Dialog />
           </React.Fragment>
         </Router>
       </div>
