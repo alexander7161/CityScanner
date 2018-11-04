@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CardMedia from "@material-ui/core/CardMedia";
 
 const CardComponent = props => (
-  <Link to={"/summary/" + props.item.To}>
+  <Link to={"/summary/" + props.item.id}>
     <MUCard
       style={{
         marginTop: "8px",
@@ -56,6 +56,23 @@ const CardComponent = props => (
             gutterBottom
           >
             {props.item.To}, {props.item.MinPrice}€
+          </Typography>
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 38,
+            left: 16,
+            color: "white",
+            zIndex: 3
+          }}
+        >
+          <Typography
+            style={{ color: "white", fontWeight: "bold" }}
+            variant="subtitle1"
+            gutterBottom
+          >
+            {props.item.date}
           </Typography>
         </div>
       </div>

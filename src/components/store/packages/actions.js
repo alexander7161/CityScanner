@@ -1,4 +1,11 @@
-import { RECEIVE_PACKAGES, REQUEST_PACKAGES } from "./actionTypes";
+import { RECEIVE_PACKAGES, REQUEST_PACKAGES, SWIPE_RIGHT } from "./actionTypes";
+
+function swipeRight(index) {
+  return {
+    type: SWIPE_RIGHT,
+    index
+  };
+}
 
 function requestPackages() {
   return {
@@ -13,7 +20,7 @@ function receivePackages(packages) {
   };
 }
 
-export function fetchPackages(city) {
+function fetchPackages(city) {
   return dispatch => {
     console.log(city);
     dispatch(requestPackages());
@@ -151,3 +158,5 @@ export function fetchPackages(city) {
     }
   };
 }
+
+export { swipeRight, fetchPackages };

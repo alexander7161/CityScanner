@@ -4,13 +4,14 @@ import Refresh from "@material-ui/icons/Refresh";
 import Swipe from "./Swipe";
 import { BounceLoader } from "react-spinners";
 import { connect } from "react-redux";
-import { fetchPackages } from "../store/actions";
+import { fetchPackages, swipeRight } from "../store/actions";
 import Close from "@material-ui/icons/Close";
 import Check from "@material-ui/icons/Check";
 
 class Swiper extends React.Component {
   state = {
-    done: false
+    done: false,
+    currentIndex: 0
   };
 
   componentDidMount() {
@@ -19,6 +20,15 @@ class Swiper extends React.Component {
 
   toggleDone = () => {
     this.setState({ done: !this.state.done });
+  };
+
+  swipeRight = index => {
+    this.swipeLeft();
+    this.props.dispatch(swipeRight(index));
+  };
+
+  swipeLeft = () => {
+    this.setState({ currentIndex: this.state.currentIndex + 1 });
   };
   render() {
     const { isFetching } = this.props;
@@ -47,7 +57,13 @@ class Swiper extends React.Component {
             <Refresh />
           </Button>
         ) : (
-          <Swipe items={this.props.items} toggleDone={this.toggleDone} />
+          <Swipe
+            swipeRight={this.swipeRight}
+            swipeLeft={this.swipeLeft}
+            items={this.props.items}
+            currentIndex={this.state.currentIndex}
+            toggleDone={this.toggleDone}
+          />
         )}
 
         {this.props.items.length === 0 && (
