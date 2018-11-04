@@ -15,7 +15,7 @@ class Summary extends React.Component {
           <IconButton
             color="inherit"
             aria-label="Menu"
-            onClick={() => this.props.history.push("/")}
+            onClick={() => this.props.history.goBack()}
             style={{ left: "8px", position: "absolute", zIndex: 99 }}
           >
             <BackArrow style={{ color: "white" }} />

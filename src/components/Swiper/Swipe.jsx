@@ -9,7 +9,7 @@ const CustomAlertRight = () => <span>Ok</span>;
 const Wrapper = props => {
   return (
     <Cards
-      size={["100%", "100vh"]}
+      size={["100%", "calc(100vh - 56px)"]}
       onEnd={props.toggleDone}
       className="master-root"
       alertLeft={CustomAlertLeft}

@@ -97,7 +97,7 @@ class SwipeCards extends React.PureComponent {
             width: cardSize[0],
             height: cardSize[1],
             left: "50%",
-            top: "32%",
+            top: "34%",
             transform: "translate(-50%, -50%)",
             zIndex: 2
           }}
