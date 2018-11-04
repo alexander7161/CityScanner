@@ -11,14 +11,6 @@ const CardComponent = props => (
       style={{
         marginTop: "8px",
         height: "100%"
-
-        // backgroundColor:
-        //   props.swipeDirection === "left"
-        //     ? "red"
-        //     : props.swipeDirection === "right"
-        //       ? "green"
-        //       : "white"
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+100&0+0,0.65+100 */
       }}
     >
       <div style={{ position: "relative", height: "100%" }}>

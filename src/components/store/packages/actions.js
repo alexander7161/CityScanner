@@ -15,9 +15,15 @@ function receivePackages(packages) {
 
 export function fetchPackages(city) {
   return dispatch => {
+    console.log(city);
     dispatch(requestPackages());
     if (process.env.NODE_ENV !== "development") {
-      return fetch(`http://104.155.163.66:8080/quotes?city=${city}`)
+      var query = `city=${city}`;
+      if (city.includes(",")) {
+        query = `latlng=${city}`;
+      }
+
+      return fetch(`http://104.155.163.66:8080/quotes?${query}`)
         .then(response => response.json())
         .then(json => dispatch(receivePackages(json)))
         .catch(e => {

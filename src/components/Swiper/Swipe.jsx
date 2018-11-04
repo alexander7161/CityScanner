@@ -2,7 +2,6 @@ import React from "react";
 import Cards, { Card } from "./Card";
 import CardComponent from "./CardComponent";
 import "./style.css";
-import { connect } from "react-redux";
 
 function action(text) {
   console.log(text);
@@ -33,11 +32,4 @@ const Wrapper = props => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    items: state.items,
-    isFetching: state.isFetching
-  };
-}
-
-export default connect(mapStateToProps)(Wrapper);
+export default Wrapper;
