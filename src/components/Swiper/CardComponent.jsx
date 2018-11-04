@@ -10,7 +10,10 @@ const CardComponent = props => (
     <MUCard
       style={{
         marginTop: "8px",
-        height: "100%"
+        height: "100%",
+        WebkitBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
+        MozBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
+        boxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)"
       }}
     >
       <div style={{ position: "relative", height: "100%" }}>

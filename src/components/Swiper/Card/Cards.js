@@ -61,6 +61,15 @@ class SwipeCards extends React.PureComponent {
     const _cards = children.reduce((memo, c, i) => {
       if (index > i) return memo;
       const props = {
+        // style:
+        //   i === index
+        //     ? {
+        //         WebkitBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
+        //         MozBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
+        //         boxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)"
+        //       }
+        //     : {},
+
         key: i,
         containerSize,
         index: children.length - index,
@@ -88,7 +97,7 @@ class SwipeCards extends React.PureComponent {
             width: cardSize[0],
             height: cardSize[1],
             left: "50%",
-            top: "35%",
+            top: "32%",
             transform: "translate(-50%, -50%)",
             zIndex: 2
           }}
@@ -102,7 +111,7 @@ class SwipeCards extends React.PureComponent {
 
 SwipeCards.defaultProps = {
   size: [300, 300],
-  cardSize: ["90vw", "70vh"]
+  cardSize: ["95vw", "64vh"]
 };
 
 export default SwipeCards;

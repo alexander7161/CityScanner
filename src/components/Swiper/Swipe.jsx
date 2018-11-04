@@ -7,7 +7,6 @@ const CustomAlertLeft = () => <span>Nop</span>;
 const CustomAlertRight = () => <span>Ok</span>;
 
 const Wrapper = props => {
-  console.log(props.currentIndex);
   return (
     <Cards
       size={["100%", "100vh"]}
@@ -15,6 +14,7 @@ const Wrapper = props => {
       className="master-root"
       alertLeft={CustomAlertLeft}
       alertRight={CustomAlertRight}
+      ref={props.childCards}
     >
       {props.items.map((item, key) => (
         <Card
