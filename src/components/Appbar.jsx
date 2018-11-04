@@ -26,7 +26,6 @@ class MenuAppBar extends React.Component {
   render() {
     const { classes } = this.props;
 
-    console.log(this.props.location.pathname);
     var selected = 1;
     if (this.props.location.pathname.includes("list")) {
       selected = 2;
@@ -82,14 +81,14 @@ class MenuAppBar extends React.Component {
                       <path
                         id="Path_13"
                         data-name="Path 13"
-                        class="cls-1"
+                        className="cls-1"
                         d="M7.639,10.937A6.358,6.358,0,0,1,4.258,2.606,1.875,1.875,0,1,0,.8,1.146,10.108,10.108,0,0,0,6.178,14.392a1.876,1.876,0,0,0,1.461-3.455Z"
                         transform="translate(8.595 3.348)"
                       />
                       <path
                         id="Path_14"
                         data-name="Path 14"
-                        class="cls-1"
+                        className="cls-1"
                         d="M12.885,22.207a14.974,14.974,0,0,1-7.953-19.6,1.875,1.875,0,0,0-3.455-1.46,18.73,18.73,0,0,0,9.948,24.517,1.876,1.876,0,0,0,1.46-3.455Z"
                         transform="translate(0 0)"
                       />

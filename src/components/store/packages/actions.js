@@ -14,6 +14,7 @@ function requestPackages() {
 }
 
 function receivePackages(packages) {
+  packages.map(p => (p.id = p.From + p.MinPrice + p.To));
   return {
     type: RECEIVE_PACKAGES,
     packages
@@ -24,13 +25,13 @@ function fetchPackages(city) {
   return dispatch => {
     console.log(city);
     dispatch(requestPackages());
-    if (process.env.NODE_ENV !== "development" || true) {
+    if (process.env.NODE_ENV !== "development") {
       var query = `city=${city}`;
       if (city.includes(",")) {
         query = `latlng=${city}`;
       }
 
-      return fetch(`http://104.154.181.247:8080/quotes?${query}`)
+      return fetch(`http://35.208.194.103:8080/quotes?${query}`)
         .then(response => response.json())
         .then(json => {
           if (Array.isArray(json)) {
