@@ -34,12 +34,10 @@ class Summary extends React.Component {
 
 function mapStateToProps(state, props) {
   const { summaryID } = props.match.params;
-  console.log(summaryID);
   var item = state.packages.favouriteItems.find(i => (i.id = summaryID));
   if (!item) {
     item = state.packages.items.find(i => (i.id = summaryID));
   }
-  console.log(item);
 
   if (!item) {
     props.history.push("/");
