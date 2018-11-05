@@ -25,7 +25,7 @@ function fetchPackages(city) {
   return dispatch => {
     console.log(city);
     dispatch(requestPackages());
-    if (process.env.NODE_ENV !== "development" || true) {
+    if (process.env.NODE_ENV !== "development") {
       var query = `city=${city}`;
       if (city.includes(",")) {
         query = `latlng=${city}`;
