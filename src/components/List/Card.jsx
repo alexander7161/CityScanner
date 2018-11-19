@@ -1,19 +1,16 @@
 import React from "react";
 import MUCard from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
-import CardMedia from "@material-ui/core/CardMedia";
 
 const CardComponent = props => (
   <Link to={"/summary/" + props.item.id}>
     <MUCard
       style={{
         marginTop: "8px",
-        height: "100%",
-        WebkitBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
-        MozBoxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)",
-        boxShadow: "0px 3px 21px 0px rgba(0,0,0,0.17)"
+        marginRight: "8px",
+        marginLeft: "8px",
+        height: "100px"
       }}
     >
       <div style={{ position: "relative", height: "100%" }}>
@@ -37,7 +34,7 @@ const CardComponent = props => (
           <img
             src={props.item.Photo}
             style={{
-              height: "100%",
+              width: "100%",
               width: "auto",
               zIndex: 0
             }}
@@ -46,7 +43,7 @@ const CardComponent = props => (
         <div
           style={{
             position: "absolute",
-            bottom: 8,
+            bottom: 4,
             left: 16,
             color: "white",
             zIndex: 3
@@ -54,8 +51,7 @@ const CardComponent = props => (
         >
           <Typography
             style={{ color: "white", fontWeight: "bold" }}
-            component="h2"
-            variant="headline"
+            variant="h5"
             gutterBottom
           >
             {props.item.To}, {props.item.MinPrice}€
@@ -64,7 +60,7 @@ const CardComponent = props => (
         <div
           style={{
             position: "absolute",
-            bottom: 38,
+            bottom: 32,
             left: 16,
             color: "white",
             zIndex: 3
