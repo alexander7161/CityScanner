@@ -1,5 +1,5 @@
 # CityScanner
 
-http://hellohackathon-1478349721140.appspot.com/
+https://city-scanner.herokuapp.com/
 
 Optimised for Mobile
